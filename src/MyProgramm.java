@@ -1,17 +1,22 @@
-/* Простой калькулятор
+/* 
 Пользователь вводит одну строку, в которой должно быть записано простое арифметическое выражение вида "a <операция> b", где a и b - какие-то действительные числа, а операция - один из символов "+", "-", "*", "/". Ваша задача - выполнить вычисление, если это возможно. Гарантируется, что в введённой строке ровно 2 пробела (значение пробел значение пробел значение) В результате работы могут произойти различные ошибки. Их нужно обработать следующим образом:
 Если одно из чисел не является числом, то вывести на экран "Error! Not number"
 Если вместо знака операции было введено любое другое значение, то выведите "Operation Error!"
 Если произошла попытка деления на ноль, то выведите на экран "Error! Division by zero"
-Обрабатывать исключения необходимо в указанном выше порядке. */
+Обрабатывать исключения необходимо в указанном выше порядке.
+ Продолжите работу над проектом. Добавьте возможность считывания одной строчки из файла input.txt. */
 
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class MyProgramm {
-    public static void main (String[] args) {
-        Scanner sc = new Scanner(System.in);
-        try {
-            System.out.println(calculator(sc.nextLine()));
+    public static void main (String[] args) throws Exception {
+        try  {
+            FileReader r = new FileReader("input.txt");
+            Scanner sc = new Scanner(r);
+            while(sc.hasNextLine()){
+                System.out.println(calculator(sc.nextLine()));
+            }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());}}
 
